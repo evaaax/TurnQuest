@@ -1,6 +1,8 @@
 package com.gdx.turnquest;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -19,6 +21,8 @@ public class MainMenuScreen implements Screen {
     public static final int VIRTUAL_WIDTH = 1920;
 
     public static final int VIRTUAL_HEIGHT = 1080;
+
+    public static final Graphics.DisplayMode dm = Gdx.graphics.getDisplayMode();
 
     ShapeRenderer shape;
 
@@ -76,6 +80,15 @@ public class MainMenuScreen implements Screen {
         game.font.getData().setScale(2); //Changes font size.
         game.font.draw(game.batch, "Welcome to TurnQuest!", x, 400);
         game.font.draw(game.batch, "Click anywhere to begin!", x, 350);
+        game.font.draw(game.batch, "Press F11 to switch between fullscreen/windowed mode.", dm.width/2 - 200, dm.height - 50);
+        if(Gdx.input.isKeyJustPressed(Input.Keys.F11)){
+            if(Gdx.graphics.isFullscreen()){
+                Gdx.graphics.setWindowedMode(dm.width/2, dm.height/2);
+            }
+            else {
+                Gdx.graphics.setFullscreenMode(dm);
+            }
+        }
         game.batch.end();
 
         x += xspeed;
