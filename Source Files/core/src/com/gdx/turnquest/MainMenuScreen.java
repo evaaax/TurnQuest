@@ -101,39 +101,39 @@ public class MainMenuScreen implements Screen {
         shape.line(x1, y1, x2, y2);
         shape.circle(x2, y2, 10);
 
-        if (x >= (Gdx.graphics.getWidth())) {
+        if (x >= (Gdx.graphics.getWidth() - 50)) {
             xspeed = -r.nextInt(0, 20);
-        } else if (x <= 0) {
+        } else if (x <= 50) {
             xspeed = r.nextInt(0, 20);
         }
 
-        if (y >= (Gdx.graphics.getHeight())) {
+        if (y >= (Gdx.graphics.getHeight()) - 50) {
             yspeed = -r.nextInt(0, 20);
-        } else if (y <= 0) {
+        } else if (y <= 50) {
             yspeed = r.nextInt(0, 20);
         }
 
-        if (x1 >= (Gdx.graphics.getWidth())) {
+        if (x1 >= (Gdx.graphics.getWidth()) - 50) {
             x1speed = -r.nextInt(0, 20);
-        } else if (x1 <= 0) {
+        } else if (x1 <= 50) {
             x1speed = r.nextInt(0, 20);
         }
 
-        if (y1 >= (Gdx.graphics.getHeight())) {
+        if (y1 >= (Gdx.graphics.getHeight()) - 50) {
             y1speed = -r.nextInt(0, 20);
-        } else if (y1 <= 0) {
+        } else if (y1 <= 50) {
             y1speed = r.nextInt(0, 20);
         }
 
-        if (x2 >= (Gdx.graphics.getWidth())) {
+        if (x2 >= (Gdx.graphics.getWidth()) - 10) {
             x2speed = -r.nextInt(0, 20);
-        } else if (x2 <= 0) {
+        } else if (x2 <= 10) {
             x2speed = r.nextInt(0, 20);
         }
 
-        if (y2 >= (Gdx.graphics.getHeight())) {
+        if (y2 >= (Gdx.graphics.getHeight()) - 10) {
             y2speed = -r.nextInt(0, 20);
-        } else if (y2 <= 0) {
+        } else if (y2 <= 10) {
             y2speed = r.nextInt(0, 20);
         }
 
