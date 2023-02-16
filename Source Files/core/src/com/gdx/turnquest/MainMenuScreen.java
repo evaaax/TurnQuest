@@ -22,13 +22,21 @@ public class MainMenuScreen implements Screen {
 
     ShapeRenderer shape;
 
-    int x = 0;
+    int x = 100;
 
-    int y = 0;
+    int y = 100;
 
-    int xspeed = 5;
+    int x1 = 0;
 
-    int yspeed = 2;
+    int x2 = 0;
+
+    int y1 = 0;
+
+    int y2 = 0;
+
+    int xspeed = 10;
+
+    int yspeed = 5;
 
     Viewport viewport;
 
@@ -62,21 +70,25 @@ public class MainMenuScreen implements Screen {
 
         x += xspeed;
         y += yspeed;
+        x1 += xspeed;
+        y1 += yspeed;
+        x2 += xspeed;
+        y2 += yspeed;
         shape.begin(ShapeRenderer.ShapeType.Filled);
-        shape.circle(x, y, 50);
-        shape.line(x, y, 2*x, 3*y);
-        shape.circle(2*x, 3*y, 10);
+        shape.circle(x1, y1, 50);
+        shape.line(x1, y1, 2 * x1, 3 * y1);
+        shape.circle(2 * x1, 3 * y1, 10);
 
-        if (x > Gdx.graphics.getWidth() - 200) {
+        if (x1 >= (Gdx.graphics.getWidth())) {
             xspeed = -10;
-        } else if (x < 200) {
+        } else if (x1 <= 0) {
             xspeed = 10;
         }
 
-        if (y > Gdx.graphics.getHeight() - 200) {
-            xspeed = -10;
-        } else if (y < 200) {
-            xspeed = 10;
+        if (y1 >= (Gdx.graphics.getHeight())) {
+            yspeed = -5;
+        } else if (y1 <= 0) {
+            yspeed = 5;
         }
 
         shape.end();
