@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class MainMenuScreen implements Screen {
@@ -41,6 +41,14 @@ public class MainMenuScreen implements Screen {
 
     int yspeed = 5;
 
+    int x1speed = 10;
+
+    int y1speed = 5;
+
+    int x2speed = 20;
+
+    int y2speed = 10;
+
     Viewport viewport;
 
     public MainMenuScreen(final TurnQuest game) {
@@ -63,6 +71,8 @@ public class MainMenuScreen implements Screen {
     public void render(float delta) {
         ScreenUtils.clear(0.3f, 0.7f, 0.8f, 1); // You can also write a color here, this is the background.
 
+        Random r = new Random();
+
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
@@ -82,25 +92,49 @@ public class MainMenuScreen implements Screen {
 
         x += xspeed;
         y += yspeed;
-        x1 += xspeed;
-        y1 += yspeed;
-        x2 += xspeed;
-        y2 += yspeed;
+        x1 += x1speed;
+        y1 += y1speed;
+        x2 += x2speed;
+        y2 += y2speed;
         shape.begin(ShapeRenderer.ShapeType.Filled);
         shape.circle(x1, y1, 50);
         shape.line(x1, y1, 2 * x1, 3 * y1);
         shape.circle(2 * x1, 3 * y1, 10);
 
+        if (x >= (Gdx.graphics.getWidth())) {
+            xspeed = -r.nextInt(0, 20);
+        } else if (x <= 0) {
+            xspeed = r.nextInt(0, 20);
+        }
+
+        if (y >= (Gdx.graphics.getHeight())) {
+            yspeed = -r.nextInt(0, 20);
+        } else if (y <= 0) {
+            yspeed = r.nextInt(0, 20);
+        }
+
         if (x1 >= (Gdx.graphics.getWidth())) {
-            xspeed = -10;
+            x1speed = -r.nextInt(0, 20);
         } else if (x1 <= 0) {
-            xspeed = 10;
+            x1speed = r.nextInt(0, 20);
         }
 
         if (y1 >= (Gdx.graphics.getHeight())) {
-            yspeed = -5;
+            y1speed = -r.nextInt(0, 20);
         } else if (y1 <= 0) {
-            yspeed = 5;
+            y1speed = r.nextInt(0, 20);
+        }
+
+        if (x2 >= (Gdx.graphics.getWidth())) {
+            x2speed = -r.nextInt(0, 20);
+        } else if (x2 <= 0) {
+            x2speed = r.nextInt(0, 20);
+        }
+
+        if (y2 >= (Gdx.graphics.getHeight())) {
+            y2speed = -r.nextInt(0, 20);
+        } else if (y2 <= 0) {
+            y2speed = r.nextInt(0, 20);
         }
 
         shape.end();
