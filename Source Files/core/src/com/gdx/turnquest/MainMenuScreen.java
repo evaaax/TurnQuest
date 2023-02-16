@@ -83,8 +83,7 @@ public class MainMenuScreen implements Screen {
         if(Gdx.input.isKeyJustPressed(Input.Keys.F11)){
             if(Gdx.graphics.isFullscreen()){
                 Gdx.graphics.setWindowedMode(dm.width/2, dm.height/2);
-            }
-            else {
+            } else {
                 Gdx.graphics.setFullscreenMode(dm);
             }
         }
@@ -103,8 +102,10 @@ public class MainMenuScreen implements Screen {
 
         if (x >= (Gdx.graphics.getWidth() - 50)) {
             xspeed = -r.nextInt(0, 20);
+            shape.setColor(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
         } else if (x <= 50) {
             xspeed = r.nextInt(0, 20);
+            shape.setColor(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
         }
 
         if (y >= (Gdx.graphics.getHeight()) - 50) {
