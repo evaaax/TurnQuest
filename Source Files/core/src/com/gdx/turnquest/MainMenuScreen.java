@@ -31,11 +31,11 @@ public class MainMenuScreen implements Screen {
 
     int x1 = 0;
 
-    int x2 = 0;
+    int x2 = 50;
 
     int y1 = 0;
 
-    int y2 = 0;
+    int y2 = 50;
 
     int xspeed = 10;
 
@@ -98,8 +98,8 @@ public class MainMenuScreen implements Screen {
         y2 += y2speed;
         shape.begin(ShapeRenderer.ShapeType.Filled);
         shape.circle(x1, y1, 50);
-        shape.line(x1, y1, 2 * x1, 3 * y1);
-        shape.circle(2 * x1, 3 * y1, 10);
+        shape.line(x1, y1, x2, y2);
+        shape.circle(x2, y2, 10);
 
         if (x >= (Gdx.graphics.getWidth())) {
             xspeed = -r.nextInt(0, 20);
