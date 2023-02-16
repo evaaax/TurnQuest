@@ -69,7 +69,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(0.3f, 0.7f, 0.8f, 1); // You can also write a color here, this is the background.
+        // You can also write a color here, this is the background.
 
         Random r = new Random();
 
@@ -78,7 +78,7 @@ public class MainMenuScreen implements Screen {
         game.batch.begin();
         game.font.getData().setScale(2); //Changes font size.
         game.font.draw(game.batch, "Welcome to TurnQuest!", x, 400);
-        game.font.draw(game.batch, "Click anywhere to begin!", x, 350);
+        game.font.draw(game.batch, "Click anywhere to begin!", Gdx.graphics.getWidth()/2, y);
         game.font.draw(game.batch, "Press F11 to switch between fullscreen/windowed mode.", dm.width/2 - 350, dm.height - 50);
         if(Gdx.input.isKeyJustPressed(Input.Keys.F11)){
             if(Gdx.graphics.isFullscreen()){
@@ -100,18 +100,22 @@ public class MainMenuScreen implements Screen {
         shape.line(x1, y1, x2, y2);
         shape.circle(x2, y2, 10);
 
-        if (x >= (Gdx.graphics.getWidth() - 50)) {
-            xspeed = -r.nextInt(0, 20);
+        if (x >= (VIRTUAL_WIDTH - 50)) {
+            xspeed = -r.nextInt(20, 100);
             shape.setColor(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
+            ScreenUtils.clear(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
         } else if (x <= 50) {
-            xspeed = r.nextInt(0, 20);
+            xspeed = r.nextInt(20, 100);
             shape.setColor(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
+            ScreenUtils.clear(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
         }
 
         if (y >= (Gdx.graphics.getHeight()) - 50) {
             yspeed = -r.nextInt(0, 20);
+            ScreenUtils.clear(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
         } else if (y <= 50) {
             yspeed = r.nextInt(0, 20);
+            ScreenUtils.clear(r.nextInt(), r.nextInt(), r.nextInt(), r.nextInt());
         }
 
         if (x1 >= (Gdx.graphics.getWidth()) - 50) {
